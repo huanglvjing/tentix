@@ -23,6 +23,13 @@ const envSchema = z.object({
   ENCRYPTION_KEY: z.string().base64().trim(),
   SEALOS_APP_TOKEN: z.string().trim().optional(),
 
+  TAB_OPENAI_API_KEY: z.string().trim().optional(),
+  TAB_SUMMARY_MODEL:z.string().trim().optional(),
+  TAB_EMBEDDING_MODEL:z.string().trim().optional(), 
+  TAB_CHAT_MODEL:z.string().trim().optional(),
+  TAB_FAST_MODEL:z.string().trim().optional(),
+
+
   OPENAI_BASE_URL: z.string().url().trim().optional(),
   OPENAI_API_KEY: z.string().trim().optional(),
   SUMMARY_MODEL: z.string().trim().optional(),

@@ -145,8 +145,12 @@ export function StaffMessageInput({
   const { kbSelectionMode, clearKbSelection, selectedMessageIds } =
     useChatStore();
   const { id: userId } = useLocalUser();
+  
 
-  // 分析消息内容中的文件情况
+  const authToken = window.localStorage.getItem("token");
+  const ticketId = window.location.pathname.split('/').pop();
+
+
   const analyzeFileContent = useCallback(
     (content: JSONContentZod): FileStats => {
       let count = 0;
@@ -434,6 +438,8 @@ export function StaffMessageInput({
             editorContentClassName="overflow-auto h-full"
             editable={!isUploading}
             editorClassName="focus:outline-none p-4 h-full"
+            ticketId={ticketId || undefined}
+            authToken={authToken || undefined}
             className="border-none"
             editorProps={editorProps}
           />
@@ -452,3 +458,4 @@ export function StaffMessageInput({
     </div>
   );
 }
+
